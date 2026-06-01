@@ -1,4 +1,11 @@
 -- Pokreni na bazi ecommerce_silver
+-- Kreira schema silver i sve clean tabele (Silver v2)
+--
+-- macOS / Linux:
+--   psql -U postgres -h localhost -d ecommerce_silver -f sql/silver_v2_setup.sql
+-- Windows (pgAdmin): Query Tool na ecommerce_silver → Execute
+
+CREATE SCHEMA IF NOT EXISTS silver;
 
 DROP TABLE IF EXISTS silver.shipments CASCADE;
 DROP TABLE IF EXISTS silver.payments CASCADE;

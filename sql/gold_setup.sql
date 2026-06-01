@@ -1,4 +1,9 @@
 -- Pokreni na bazi ecommerce_gold
+-- Kreira schema gold i KPI tabele
+--
+-- macOS / Linux:
+--   psql -U postgres -h localhost -d ecommerce_gold -f sql/gold_setup.sql
+-- Windows (pgAdmin): Query Tool na ecommerce_gold → Execute
 
 CREATE SCHEMA IF NOT EXISTS gold;
 

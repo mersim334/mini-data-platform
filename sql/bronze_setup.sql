@@ -1,5 +1,9 @@
 -- Pokreni na bazi ecommerce_bronze
 -- Kreira schema bronze i sve raw tabele (koraci 18-19 roadmapa)
+--
+-- macOS / Linux:
+--   psql -U postgres -h localhost -d ecommerce_bronze -f sql/bronze_setup.sql
+-- Windows (pgAdmin): Query Tool na ecommerce_bronze → Execute
 
 CREATE SCHEMA IF NOT EXISTS bronze;
 
