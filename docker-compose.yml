@@ -1,0 +1,39 @@
+# One command (Windows / macOS / Linux):
+#   docker compose up --build
+#
+# Demo credentials — local Docker only. Do not use in production.
+
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mini_etl_demo
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
+      - ./sql:/sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 2s
+      timeout: 5s
+      retries: 20
+      start_period: 5s
+
+  pipeline:
+    build: .
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGHOST: postgres
+      PGPORT: "5432"
+      PGUSER: postgres
+      PGPASSWORD: mini_etl_demo
+      PGDATABASE: ecommerce_bronze
+    volumes:
+      - ./reports:/app/reports
+      - ./logs:/app/logs
+
+volumes:
+  pgdata:
