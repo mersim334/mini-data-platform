@@ -1,3 +1,10 @@
+"""
+Primjena Silver v2 DDL i bronze migracije.
+
+Pokretanje (.env se ucitava automatski iz utils/db.py):
+  python jobs/setup_silver_v2.py
+"""
+
 import sys
 from pathlib import Path
 

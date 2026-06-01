@@ -1,7 +1,9 @@
 """
 Generise ~10_000 redova po CSV fajlu.
 Otprilike svaki 50. red (50, 100, 150, ...) je namjerno los.
-Pokretanje: python jobs/generate_test_data.py
+
+Pokretanje:
+  python jobs/generate_test_data.py
 """
 
 import csv

@@ -1,3 +1,10 @@
+"""
+Glavni ETL pipeline: Bronze ingest -> checks -> Silver v2 -> Gold -> health check.
+
+Pokretanje (vidi README.md — .env se ucitava automatski):
+  python jobs/run_pipeline.py
+"""
+
 import logging
 import subprocess
 import sys
